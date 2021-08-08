@@ -6,7 +6,18 @@ const ui = new UI();
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
 
-// weather.changeLocation('London')
+// Change location event
+document.querySelector('#w-change-btn').addEventListener('click', (e) => {
+    const city = document.querySelector('#city').value;
+
+    weather.changeLocation(`${city}`);
+
+    // Get and display weather
+    getWeather();
+
+    // Close modal
+    $('#locModal').modal('hide')
+});
 
 function getWeather() {
     weather.getWeather()
