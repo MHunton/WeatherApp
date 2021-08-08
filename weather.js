@@ -6,7 +6,7 @@ class Weather {
 
     // Fetch weather from API
     async getWeather() {
-        if(this.city === '') {
+        if(this.city === null) {
             const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${this.apikey}&q=auto:ip&aqi=no`);
 
             const responseData = await response.json();
